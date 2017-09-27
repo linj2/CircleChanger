@@ -34,14 +34,14 @@ def main():
     #     run_test_swell_or_shrink_once()
     # if m1_tests.is_implemented('swell_or_shrink_repeatedly', 4):
     #     run_test_swell_or_shrink_repeatedly()
-    # if m1_tests.is_implemented('swallow'):
-    #     run_test_swallow()
+    if m1_tests.is_implemented('swallow'):
+        run_test_swallow()
     # if m1_tests.is_implemented('change_color'):
     #     run_test_change_color()
-    if m1_tests.is_implemented('change_to_original_color'):
-        run_test_change_to_original_color()
-    if m1_tests.is_implemented('change_to_next_color_in_tuple'):
-        run_test_change_to_next_color_in_tuple()
+    # if m1_tests.is_implemented('change_to_original_color'):
+    #     run_test_change_to_original_color()
+    # if m1_tests.is_implemented('change_to_next_color_in_tuple'):
+    #     run_test_change_to_next_color_in_tuple()
 
 
 ########################################################################
@@ -108,6 +108,7 @@ class CircleChanger(object):
         self.circle.outline_thickness = 1
         self.circle.center = rg.Point(x, y)
         self.oc = fill_color
+        self.index = 0
 
     def __repr__(self):
         """
@@ -461,12 +462,15 @@ class CircleChanger(object):
         fill color have no effect on or interaction with this method.
         """
         ################################################################
-        # TODO: 9.
+        # TODONE: 9.
         #   First, READ the doc-string (specification) above.
         #   Second, READ the   run_test_change_to_next_color_in_tuple
         #   function (below).  Third, implement and test this method.
         ################################################################
-
+        if self.index > len(self.colors)-1:
+            self.index = 0
+        self.circle.fill_color = self.colors[self.index]
+        self.index += 1
 
 ########################################################################
 # The TEST functions for the  CircleChanger  class begin here.
