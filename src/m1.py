@@ -378,11 +378,13 @@ class CircleChanger(object):
         #   the center and radius of the new CircleChanger.
         #   NO CREDIT if you use the distance formula here.
         ################################################################
-        x = (self.circle.center.x + other_circle_changer.circle.center.x) // 2
-        y = (self.circle.center.y + other_circle_changer.circle.center.y) // 2
-        center = rg.Point(x, y)
-        radius = self.circle.center.get_distance_from(other_circle_changer.circle.center)//2
-        circle = rg.Circle(center, radius)
+        x = (self.circle.center.x + other_circle_changer.circle.center.x) / 2
+        y = (self.circle.center.y + other_circle_changer.circle.center.y) / 2
+        radius = self.circle.center.get_distance_from(other_circle_changer.circle.center) / 2
+        fill_color = 'red'
+        color = self.colors + other_circle_changer.colors
+        circle = CircleChanger(x,y,radius,fill_color,color)
+        return circle
 
     def change_color(self, index_of_color):
         """
